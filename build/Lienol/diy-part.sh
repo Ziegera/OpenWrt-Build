@@ -14,12 +14,13 @@ EOF
 sed -i "s/OpenWrt /OpenWrt-22.03 $(TZ=UTC-8 date "+%Y-%m-%d") /g" $ZZZ_PATH 
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ_PATH                                                    
 
-cat >${GITHUB_WORKSPACE}/Clear <<-EOF
-rm -rf config.buildinfo
-rm -rf feeds.buildinfo
-rm -rf openwrt-x86-64-generic-kernel.bin
-rm -rf openwrt-x86-64-generic.manifest
-rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
-rm -rf sha256sums
-rm -rf version.buildinfo
+cat >"$CLEAR_PATH" <<-EOF
+packages
+config.buildinfo
+feeds.buildinfo
+openwrt-x86-64-generic-kernel.bin
+openwrt-x86-64-generic.manifest
+openwrt-x86-64-generic-squashfs-rootfs.img.gz
+sha256sums
+version.buildinfo
 EOF
