@@ -10,7 +10,7 @@ uci set dhcp.@dnsmasq[0].filter_aaaa='1'
 uci set dhcp.lan.ignore='1'                                                                                                         
 uci set system.@system[0].hostname='OpenWrt'                           
 EOF
-    
+sed -i "s/bootstrap/material/ig" feeds/luci/collections/luci/Makefile
 sed -i "s/OpenWrt /OpenWrt-22.03 $(TZ=UTC-8 date "+%Y-%m-%d") /g" $ZZZ_PATH 
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ_PATH                                                    
 
